@@ -1,0 +1,14 @@
+package com.example.watchlist.repository;
+
+import com.example.watchlist.model.Movie;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface MovieRepository extends JpaRepository<Movie, Long> {
+
+    // Derived query: SELECT * FROM movies WHERE watched = ?
+    List<Movie> findByWatched(boolean watched);
+}
